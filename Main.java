@@ -17,13 +17,15 @@ public class Main {
   public static void main(String[] args) {
     if (args.length < 1) System.out.println("Error: Invalid number of arguments");
     else
+      if (Files.exists(Paths.get(args[0]))) {
       try {
           List<String> lines = Files.readAllLines(Paths.get(args[0]));
           for (String line : lines)
               for (String number : line.split(" ")) prices.add(Integer.parseInt(number));
           start(prices);
       } catch (IOException e) {}
-  }
+   } else System.out.println("Error: File does not exist");
+}
 
   public static void start(List<Integer> prices ) {
         //start = System.nanoTime();
