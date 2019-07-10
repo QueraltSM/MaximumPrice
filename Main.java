@@ -16,11 +16,10 @@ public class Main {
     prices.add(10);
     prices.add(1);
     prices.add(5);
-    prices.add(30);
-    prices.add(40);
-    start = System.nanoTime();
-    boxBruteForce.getMaxCount(prices.size(),prices);
-    System.out.println("Brute Force - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
+    prices.add(10);
+    //start = System.nanoTime();
+    //System.out.println("RES1=" + boxBruteForce.getMaxCount(prices.size(),prices));
+    //System.out.println("Brute Force - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
     start = System.nanoTime();
     boxTabulation.getMaxCount(prices.size(),prices);
     System.out.println("Tabulation - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
