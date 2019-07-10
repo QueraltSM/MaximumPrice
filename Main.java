@@ -28,9 +28,9 @@ public class Main {
 }
 
   public static void start(List<Integer> prices ) {
-        //start = System.nanoTime();
-        //System.out.println("RES1=" + boxBruteForce.getMaxCount(prices.size(),prices));
-        //System.out.println("Brute Force - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
+      start = System.nanoTime();
+      boxBruteForce.getMaxCount(prices.size(),prices);
+      System.out.println("Brute Force - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
       start = System.nanoTime();
       boxTabulation.getMaxCount(prices.size(),prices);
       System.out.println("Tabulation - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
