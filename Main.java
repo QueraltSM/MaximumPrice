@@ -1,5 +1,10 @@
 import java.util.*;
 import java.lang.*;
+import java.io.File;
+import java.util.Scanner;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.io.IOException;
 
 public class Main {
 
@@ -9,22 +14,26 @@ public class Main {
   static Memoization boxMemoization= new Memoization();
   static long start;
 
-  public static void main(String[] args){
-    prices.add(2);
-    prices.add(5);
-    prices.add(5);
-    prices.add(10);
-    prices.add(1);
-    prices.add(5);
-    prices.add(10);
-    //start = System.nanoTime();
-    //System.out.println("RES1=" + boxBruteForce.getMaxCount(prices.size(),prices));
-    //System.out.println("Brute Force - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
-    start = System.nanoTime();
-    boxTabulation.getMaxCount(prices.size(),prices);
-    System.out.println("Tabulation - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
-    start = System.nanoTime();
-    boxMemoization.getMaxCount(prices.size(),prices);
-    System.out.println("Memoization - Execution time = " +  (System.nanoTime() - start) + " nanoseconds");
+  public static void main(String[] args) {
+    if (args.length < 1) System.out.println("Error: Invalid number of arguments");
+    else
+      try {
+          List<String> lines = Files.readAllLines(Paths.get(args[0]));
+          for (String line : lines)
+              for (String number : line.split(" ")) prices.add(Integer.parseInt(number));
+          start(prices);
+      } catch (IOException e) {}
+  }
+
+  public static void start(List<Integer> prices ) {
+        //start = System.nanoTime();
+        //System.out.println("RES1=" + boxBruteForce.getMaxCount(prices.size(),prices));
+        //System.out.println("Brute Force - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
+      start = System.nanoTime();
+      boxTabulation.getMaxCount(prices.size(),prices);
+      System.out.println("Tabulation - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
+      start = System.nanoTime();
+      boxMemoization.getMaxCount(prices.size(),prices);
+      System.out.println("Memoization - Execution time = " +  (System.nanoTime() - start) + " nanoseconds");
   }
 }
