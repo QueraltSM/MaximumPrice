@@ -28,14 +28,14 @@ public class Main {
 }
 
   public static void start(List<Integer> prices ) {
-      start = System.nanoTime();
-      boxBruteForce.getMaxCount(prices.size(),prices);
-      System.out.println("Brute Force - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
-      start = System.nanoTime();
-      boxTabulation.getMaxCount(prices.size(),prices);
-      System.out.println("Tabulation - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
-      start = System.nanoTime();
-      boxMemoization.getMaxCount(prices.size(),prices);
-      System.out.println("Memoization - Execution time = " +  (System.nanoTime() - start) + " nanoseconds");
+      //start = System.nanoTime();
+      //System.out.println(boxBruteForce.getMaxCount(prices.size(),prices));
+      //System.out.println("Brute Force - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
+      //start = System.nanoTime();
+      System.out.println(boxTabulation.getMaxCount(prices.size(),prices));
+      //System.out.println("Tabulation - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
+      //start = System.nanoTime();
+      System.out.println(boxMemoization.getMaxCount(prices.size(),prices));
+      //System.out.println("Memoization - Execution time = " +  (System.nanoTime() - start) + " nanoseconds");
   }
 }
