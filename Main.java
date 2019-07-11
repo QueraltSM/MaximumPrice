@@ -29,7 +29,7 @@ public class Main {
 
   public static void start(List<Integer> prices) {
       start = System.nanoTime();
-      boxBruteForce.getMaxCount(prices.size(),prices);
+      boxBruteForce.getMaxCount(prices.size(),prices); // Modify first parameter for combinations
       System.out.println("Brute Force - Execution time = " + (System.nanoTime() - start) + " nanoseconds");
       start = System.nanoTime();
       boxTabulation.getMaxCount(prices.size(),prices);
