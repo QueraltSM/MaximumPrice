@@ -24,9 +24,9 @@ public class BruteForce {
     while (iterator.hasNext()) {
       if (iterator.nextIndex()==0) auxResult = iterator.next();
       else if (iterator.nextIndex()==1) {
-        iterator.next();
         auxResult = Math.max(iterator.previous(), iterator.next());
-      } else auxResult = Math.max(prevOne, iterator.next()+prevTwo);
+        iterator.next();
+      } else auxResult = Math.max(prevOne, (iterator.next()+prevTwo));
       prevTwo = prevOne;
       prevOne = auxResult;
     }
