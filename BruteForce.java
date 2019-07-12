@@ -6,8 +6,7 @@ public class BruteForce {
     int result = 0;
     List<Integer> aux;
     for (List<Integer> permutation : new PermutationIterable<>(prices)) {
-        aux = permutation;
-        int auxResult = calculateMaxCount(aux);
+        int auxResult = calculateMaxCount(permutation);
         if (auxResult > result) result = auxResult;
     }
     return result;
