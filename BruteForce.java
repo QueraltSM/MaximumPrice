@@ -2,12 +2,14 @@ import java.util.*;
 
 public class BruteForce {
 
+  @SuppressWarnings("unchecked")
   public int getMaxCount(int n, List<Integer> prices) {
     int result = 0;
-    List<Integer> aux;
-    for (List<Integer> permutation : new PermutationIterable<>(prices)) {
-        int auxResult = calculateMaxCount(permutation);
-        if (auxResult > result) result = auxResult;
+    CombinationIterable it = new CombinationIterable(prices);
+    Iterator s = it.iterator();
+    while (s.hasNext()) {
+      int auxResult = calculateMaxCount(((List) (s.next())));
+      if (auxResult > result) result = auxResult;
     }
     return result;
   }
