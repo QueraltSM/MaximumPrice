@@ -43,7 +43,7 @@ public class CombinationIterable implements Iterable<List<Integer>> {
                     indices[curIndex] = indices.length-curIndex - 2;
                     curIndex--;
                 } else {
-                    result[curIndex] = arrayList[indices[curIndex]];
+                    result[curIndex] = arrayList[arrayList.length - indices[curIndex] - 1];
                     if (curIndex < indices.length - 1) curIndex++;
                     else {
                         elem = new LinkedList <> ();
